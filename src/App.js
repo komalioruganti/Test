@@ -7,7 +7,7 @@ import alan_key from './apikey';
 function App() {
   
 useEffect(()=>{
-  getModels();
+  // getModels();
   
   alanBtn({
     key: alan_key,
@@ -49,34 +49,34 @@ let newChatLog = [...chatLog,{user:"me", message: `${input}`}];
 await setInput("");
 setChatLog(newChatLog);
 const messages =  newChatLog.map((message)=> message.message ).join("\n");
-const response = await fetch("http://localhost:3080/",{
-  method : 'POST',
-  headers : {
-    'Content-Type': "application/json"
-  },
-  body :JSON.stringify({
-    message: messages,
-    currModel
+// const response = await fetch("http://localhost:3080/",{
+//   method : 'POST',
+//   headers : {
+//     'Content-Type': "application/json"
+//   },
+//   body :JSON.stringify({
+//     message: messages,
+//     currModel
 
-  })
-});
+//   })
+// });
 
 
 
-const data = await response.json();
-console.log(data)
-await setChatLog([...newChatLog,{user : "gpt", message :`${data.message}`, image_url :`${data.image_url}`}])
+// const data = await response.json();
+// console.log(data)
+// await setChatLog([...newChatLog,{user : "gpt", message :`${data.message}`, image_url :`${data.image_url}`}])
 
 }
-function getModels(){
-  fetch("http://localhost:3080/models")
-  .then((res) => res.json())
-  .then(data => {
-    setModels(data.models)
+// function getModels(){
+//   fetch("http://localhost:3080/models")
+//   .then((res) => res.json())
+//   .then(data => {
+//     setModels(data.models)
     
-  })
+//   })
   
-}
+// }
 
 function handleChange(e){
   setInput(e.target.value);

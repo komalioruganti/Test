@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import './App.css';
+import alan_key from './apikey';
 
 const Alan = () => {
   const [name, setName] = useState('');
@@ -8,7 +9,7 @@ const Alan = () => {
   const [address, setAddress] = useState('');
   useEffect(() => {
     alanBtn({
-        key: ALAN_Key,
+        key: alan_key,
         onCommand: (commandData) => {
           if(commandData.command === 'name'){
             console.log("entered in here")
