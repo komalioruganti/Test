@@ -2,7 +2,7 @@ import './App.css';
 import {useState,useEffect} from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import Alan from './Alan';
-import ALAN_API_KEY from '../apikey';
+import alan_key from './apikey';
 
 function App() {
   
@@ -10,7 +10,7 @@ useEffect(()=>{
   getModels();
   
   alanBtn({
-    key: ALAN_API_KEY,
+    key: alan_key,
     onCommand: (commandData) => {
       if(commandData.command === 'name'){
         console.log("entered in here")
